@@ -1,5 +1,6 @@
-# Diagrama de Clases del Proyecto
+# Diagrama de Clases del Proyecto - Sistema de Biblioteca
 
+```mermaid
 classDiagram
     class IPrestable {
         <<interface>>
