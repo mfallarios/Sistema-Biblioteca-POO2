@@ -1,4 +1,4 @@
-# Diagrama de Clases del Proyecto - Sistema de Biblioteca
+# Diagrama de Clases del Proyecto - Sistema de Biblioteca v2.0
 
 ```mermaid
 classDiagram
@@ -12,39 +12,51 @@ classDiagram
         <<abstract>>
         #String codigo
         #String titulo
+        #String editorial
+        #int anioPublicacion
         #boolean disponible
         +mostrarDetalles()*
         +obtenerTipo()*
     }
 
+    class Autor {
+        -String idAutor
+        -String nombre
+        -String nacionalidad
+        +obtenerBiografia()
+    }
+
     class Libro {
-        -String autor
+        -Autor autor
+        -String isbn
         -int numPaginas
+        -String genero
         +mostrarDetalles()
-        +obtenerTipo()
         +prestar()
-        +devolver()
     }
 
     class Revista {
         -int nroEdicion
+        -String periodicidad
         +mostrarDetalles()
-        +obtenerTipo()
     }
 
     class Usuario {
         -String idUsuario
         -String nombre
+        -String correo
         +solicitarPrestamo()
     }
 
     class BibliotecaController {
         +listarRecursos()
+        +buscarPorAutor(Autor autor)
         +registrarPrestamo()
     }
 
     Recurso <|-- Libro : extends
     Recurso <|-- Revista : extends
+    Libro --> Autor : tiene un
     IPrestable <|.. Libro : implements
     BibliotecaController ..> Recurso : gestiona
     Usuario --> Libro : solicita
