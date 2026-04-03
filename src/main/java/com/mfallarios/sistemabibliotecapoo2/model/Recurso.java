@@ -4,10 +4,15 @@ package com.mfallarios.sistemabibliotecapoo2.model;
 public abstract class Recurso {
     protected String codigo;
     protected String titulo;
+    protected String editorial;
+    protected int anioPublicacion;
+    protected boolean disponible = true;
 
-    public Recurso(String codigo, String titulo) {
+    public Recurso(String codigo, String titulo, String editorial, int anioPublicacion) {
         this.codigo = codigo;
         this.titulo = titulo;
+        this.editorial = editorial;
+        this.anioPublicacion = anioPublicacion;
     }
 
     // Un método abstracto para que los hijos lo implementen
@@ -15,5 +20,13 @@ public abstract class Recurso {
 
     public String getTitulo() {
         return titulo;
+    }
+
+    public String getEditorial() {
+        return editorial;
+    }
+
+    public int getAnioPublicacion() {
+        return anioPublicacion;
     }
 }
