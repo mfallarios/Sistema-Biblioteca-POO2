@@ -1,8 +1,20 @@
 package com.mfallarios.sistemabibliotecapoo2.model;
 
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@MappedSuperclass
+@Data
+@NoArgsConstructor
+
 // TODO: Validar que el código no sea nulo más adelante
 public abstract class Recurso {
+
+    @Id
     protected String codigo;
+
     protected String titulo;
     protected String editorial;
     protected int anioPublicacion;
